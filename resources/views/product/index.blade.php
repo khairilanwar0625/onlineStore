@@ -18,7 +18,7 @@
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
                     <a href="{{ route('product.show', $product->getId()) }}"
-                       class="btn btn-outline-dark mt-auto">View Product</a>
+                    class="btn btn-primary mt-auto text-white">View Product</a>
                 </div>
             </div>
         </div>
