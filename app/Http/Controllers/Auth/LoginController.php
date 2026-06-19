@@ -20,6 +20,12 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            // Jika email tertentu, langsung ke halaman admin
+            if (Auth::user()->email === 'khairil@gmail.com') {
+                return redirect()->route('admin.home.index');
+            }
+
             return redirect()->intended('/');
         }
 
