@@ -67,7 +67,7 @@
 
     <div class="copyright py-4 text-center text-white">
         <div class="container">
-            <small>Copyright &copy; Online Store 2026</small>
+            <small>Copyright &copy; Online Store KhairilNwrr 2026</small>
         </div>
     </div>
 

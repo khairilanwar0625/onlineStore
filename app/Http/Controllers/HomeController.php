@@ -17,7 +17,7 @@ class HomeController extends Controller
         $viewData["title"] = "About Us - Online Store";
         $viewData["subtitle"] = "About Us";
         $viewData["description"] = "This is an Online Store built with Laravel.";
-        $viewData["author"] = "Developed by: Online Store";
+        $viewData["author"] = "Developed by: KhairilNwrr";
         return view('home.about')->with("viewData", $viewData);
     }
 }
