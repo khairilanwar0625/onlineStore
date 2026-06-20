@@ -6,7 +6,7 @@
     @forelse($viewData["products"] as $product)
     <div class="col-md-4 mb-4">
         <div class="card h-100">
-            <img src="{{ asset('uploads/' . $product->getImage()) }}"
+            <img src="{{ Str::startsWith($product->getImage(), 'http') ? $product->getImage() : asset('uploads/' . $product->getImage()) }}"
                  class="card-img-top img-card"
                  onerror="this.src='https://via.placeholder.com/300x200'">
             <div class="card-body p-4">

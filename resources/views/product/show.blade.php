@@ -5,7 +5,7 @@
 <div class="container px-4 px-lg-5 my-5">
     <div class="row gx-4 gx-lg-5 align-items-center">
         <div class="col-md-6">
-            <img src="{{ asset('uploads/' . $viewData["product"]->getImage()) }}"
+            <img src="{{ Str::startsWith($viewData['product']->getImage(), 'http') ? $viewData['product']->getImage() : asset('uploads/' . $viewData['product']->getImage()) }}"
                  class="img-fluid rounded mb-5 mb-md-0"
                  onerror="this.src='https://via.placeholder.com/500x400'">
         </div>

@@ -28,7 +28,7 @@ class AdminProductController extends Controller
             'name'        => 'required|max:255',
             'price'       => 'required|numeric|min:0',
             'description' => 'required',
-            'image'       => 'image|mimes:png,jpg,jpeg',
+            'image'       => 'nullable|image|mimes:png,jpg,jpeg',
         ]);
 
         $newProduct = new Product();
@@ -41,6 +41,8 @@ class AdminProductController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('uploads'), $imageName);
             $newProduct->setImage($imageName);
+        } elseif ($request->image_url) {
+            $newProduct->setImage($request->image_url);
         }
 
         $newProduct->save();
@@ -62,7 +64,7 @@ class AdminProductController extends Controller
             'name'        => 'required|max:255',
             'price'       => 'required|numeric|min:0',
             'description' => 'required',
-            'image'       => 'image|mimes:png,jpg,jpeg',
+            'image'       => 'nullable|image|mimes:png,jpg,jpeg',
         ]);
 
         $product = Product::findOrFail($id);
@@ -71,7 +73,6 @@ class AdminProductController extends Controller
         $product->setDescription($request->description);
 
         if ($request->hasFile('image')) {
-            // Hapus gambar lama
             if ($product->getImage() && file_exists(public_path('uploads/' . $product->getImage()))) {
                 unlink(public_path('uploads/' . $product->getImage()));
             }
@@ -79,6 +80,8 @@ class AdminProductController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('uploads'), $imageName);
             $product->setImage($imageName);
+        } elseif ($request->image_url) {
+            $product->setImage($request->image_url);
         }
 
         $product->save();
@@ -90,10 +93,8 @@ class AdminProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        // Hapus semua items terkait produk ini dulu
         Item::where('product_id', $id)->delete();
 
-        // Hapus gambar dari folder uploads
         if ($product->getImage() && file_exists(public_path('uploads/' . $product->getImage()))) {
             unlink(public_path('uploads/' . $product->getImage()));
         }
