@@ -21,8 +21,13 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Jika email tertentu, langsung ke halaman admin
-            if (Auth::user()->email === 'khairil@gmail.com') {
+            // Daftar email yang otomatis masuk ke admin
+            $adminEmails = [
+                'khairil@gmail.com',
+                'admin123@gmail.com',
+            ];
+
+            if (in_array(Auth::user()->email, $adminEmails)) {
                 return redirect()->route('admin.home.index');
             }
 
