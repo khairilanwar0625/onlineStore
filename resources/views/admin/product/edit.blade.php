@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+ @extends('layouts.admin')
 @section('title', $viewData["title"])
 @section('content')
 <div class="card">
@@ -25,15 +25,8 @@
                 <textarea name="description" rows="3" class="form-control">{{ $viewData["product"]->getDescription() }}</textarea>
             </div>
             <div class="mb-3">
-                <label class="form-label">Image URL</label>
-                <input name="image_url" value="{{ $viewData["product"]->getImage() }}"
-                       type="text" class="form-control" placeholder="https://example.com/image.jpg">
-                <small class="text-muted">Masukkan URL gambar baru atau biarkan untuk tetap pakai gambar lama</small>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">atau Upload File Gambar</label>
-                <input name="image" type="file" class="form-control" accept="image/png, image/jpeg, image/jpg">
-                <small class="text-muted">Upload file (hanya untuk local, tidak berfungsi di Vercel)</small>
+                <label class="form-label">Image (kosongkan jika tidak ingin ganti)</label>
+                <input name="image" type="file" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Update Product</button>
             <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">Cancel</a>

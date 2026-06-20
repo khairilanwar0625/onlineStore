@@ -24,15 +24,8 @@
                 <textarea name="description" rows="3" class="form-control" placeholder="Product description">{{ old('description') }}</textarea>
             </div>
             <div class="mb-3">
-                <label class="form-label">Image URL</label>
-                <input name="image_url" value="{{ old('image_url') }}" type="text"
-                       class="form-control" placeholder="https://example.com/image.jpg">
-                <small class="text-muted">Masukkan URL gambar dari internet</small>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">atau Upload File Gambar</label>
+                <label class="form-label">Image</label>
                 <input name="image" type="file" class="form-control" accept="image/png, image/jpeg, image/jpg">
-                <small class="text-muted">Upload file (hanya untuk local, tidak berfungsi di Vercel)</small>
             </div>
             <button type="submit" class="btn btn-primary">Save Product</button>
             <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">Cancel</a>
