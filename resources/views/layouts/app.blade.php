@@ -36,6 +36,11 @@
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
                     @else
+                    @if(Auth::user()->email === 'khairil@gmail.com')
+                    <li class="nav-item">
+                        <a class="nav-link text-warning fw-bold" href="{{ route('admin.home.index') }}">Admin Panel</a>
+                    </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('order.index') }}">My Orders</a>
                     </li>
