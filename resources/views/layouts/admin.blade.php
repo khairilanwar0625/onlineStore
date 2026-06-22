@@ -64,7 +64,7 @@
 
         <!-- Footer -->
         <div class="copyright py-3 text-center text-white">
-            <small>Copyright - <strong>KhairilNwrr</strong></small>
+            <small>Copyright - <strong>Online Store</strong></small>
         </div>
 
     </div>

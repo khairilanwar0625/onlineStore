@@ -38,7 +38,7 @@
                     @else
                     @if(in_array(Auth::user()->email, ['khairil@gmail.com', 'admin123@gmail.com']))
                     <li class="nav-item">
-                        <a class="nav-link text-warning fw-bold" href="{{ route('admin.home.index') }}">Admin Panel</a>
+                        <a class="nav-link text-warning fw-bold" href="{{ route('admin.home.index') }}">Admin</a>
                     </li>
                     @endif
                     <li class="nav-item">
